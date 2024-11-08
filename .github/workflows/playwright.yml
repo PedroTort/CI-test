@@ -19,8 +19,7 @@ jobs:
     - name: Install Playwright Browsers
       run: |
         npm install @playwright/test
-        npx playwright install
-        # npx playwright install --with-deps
+        npx playwright install --with-deps
     
     - name: Start React app
       run: |
