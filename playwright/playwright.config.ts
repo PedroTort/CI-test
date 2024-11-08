@@ -21,7 +21,7 @@ const config: PlaywrightTestConfig = {
     testMatch: ["tests/example.test.ts"],
     use: {
       baseURL: "https://automationintesting.online",
-      headless: false,
+      headless: true,
       screenshot: "on",
       video: "on",   
   },
