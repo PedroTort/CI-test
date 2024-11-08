@@ -20,9 +20,7 @@ jobs:
       
     - name: Start React app
       run: |
-        cd app
         nohup npm start &    # Start React app in the background
-        cd ..
 
     # Wait for React app to be available using curl
     - name: Wait for React app to be available
@@ -35,7 +33,9 @@ jobs:
         echo "React app is up and running!"
         
     - name: Run Playwright tests
-      run: npx playwright test
+      run: |
+         cd playwright
+         npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
