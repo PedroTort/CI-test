@@ -41,6 +41,11 @@ jobs:
          pwd
          npx playwright test
 
+    - name: Move back to the root directory
+      run: |
+        cd ..
+        pwd 
+
     - uses: actions/upload-artifact@v4
       if: always()
       with:
