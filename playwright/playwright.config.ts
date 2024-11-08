@@ -19,7 +19,6 @@ const config: PlaywrightTestConfig = {
 
 
     testMatch: ["tests/example.test.ts"],
-
     use: {
         // baseURL: "https://automationintesting.online",
         headless: true,
@@ -33,13 +32,8 @@ const config: PlaywrightTestConfig = {
     reporter: [
     ["dot"], 
 
-     ["json", {
-         outputFile: "jsonReports/jsonReport.json"
-     }], 
-
-    ["html", {
-        open: "always"
-    }]
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['json', { outputFolder: 'playwright-report', outputFile: 'report.json' }],
 ]
 
 };
