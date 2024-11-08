@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "/home/tortola/testes/ci-test-2/app/playwright/playwright.config.ts",
-    "rootDir": "/home/tortola/testes/ci-test-2/app/playwright",
+    "configFile": "/home/tortola/testes/ci-test-2/playwright/playwright.config.ts",
+    "rootDir": "/home/tortola/testes/ci-test-2/playwright",
     "forbidOnly": false,
     "fullyParallel": true,
     "globalSetup": null,
@@ -9,7 +9,7 @@
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
-    "maxFailures": 0,
+    "maxFailures": 1,
     "metadata": {
       "actualWorkers": 1
     },
@@ -39,24 +39,24 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "/home/tortola/testes/ci-test-2/app/playwright/test-results",
+        "outputDir": "/home/tortola/testes/ci-test-2/playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {},
         "id": "Chrome",
         "name": "Chrome",
-        "testDir": "/home/tortola/testes/ci-test-2/app/playwright",
+        "testDir": "/home/tortola/testes/ci-test-2/playwright",
         "testIgnore": [],
         "testMatch": [
           "tests/example.test.ts"
         ],
-        "timeout": 30000
+        "timeout": 0
       }
     ],
     "shard": null,
     "updateSnapshots": "missing",
     "version": "1.48.2",
-    "workers": 2,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
@@ -72,7 +72,7 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 30000,
+              "timeout": 0,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "Chrome",
@@ -80,28 +80,44 @@
               "results": [
                 {
                   "workerIndex": 0,
-                  "status": "passed",
-                  "duration": 1012,
-                  "errors": [],
+                  "status": "interrupted",
+                  "duration": 45635,
+                  "error": {
+                    "message": "Error: page.goto: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- navigating to \"https://www.google.com.br/\", waiting until \"load\"\u001b[22m\n",
+                    "stack": "Error: page.goto: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- navigating to \"https://www.google.com.br/\", waiting until \"load\"\u001b[22m\n\n    at /home/tortola/testes/ci-test-2/playwright/tests/example.test.ts:5:14",
+                    "location": {
+                      "file": "/home/tortola/testes/ci-test-2/playwright/tests/example.test.ts",
+                      "column": 14,
+                      "line": 5
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 3 |\u001b[39m test(\u001b[32m'should load the React app and display text'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   \u001b[90m// Navigate to the React app (ensure it's running on localhost:3000)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'https://www.google.com.br'\u001b[39m)\n \u001b[90m   |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mpause()\n \u001b[90m 7 |\u001b[39m   \u001b[90m// Wait for the page to load and check for the header text (replace as needed)\u001b[39m\n \u001b[90m 8 |\u001b[39m   page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Pesquisar'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/tortola/testes/ci-test-2/playwright/tests/example.test.ts",
+                        "column": 14,
+                        "line": 5
+                      },
+                      "message": "Error: page.goto: Target page, context or browser has been closed\nCall log:\n  \u001b[2m- navigating to \"https://www.google.com.br/\", waiting until \"load\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 3 |\u001b[39m test(\u001b[32m'should load the React app and display text'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 4 |\u001b[39m   \u001b[90m// Navigate to the React app (ensure it's running on localhost:3000)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m'https://www.google.com.br'\u001b[39m)\n \u001b[90m   |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mpause()\n \u001b[90m 7 |\u001b[39m   \u001b[90m// Wait for the page to load and check for the header text (replace as needed)\u001b[39m\n \u001b[90m 8 |\u001b[39m   page\u001b[33m.\u001b[39mgetByLabel(\u001b[32m'Pesquisar'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[0m\n\n\u001b[2m    at /home/tortola/testes/ci-test-2/playwright/tests/example.test.ts:5:14\u001b[22m"
+                    },
+                    {
+                      "message": "Error: Target page, context or browser has been closed"
+                    }
+                  ],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2024-11-08T13:09:42.873Z",
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/home/tortola/testes/ci-test-2/app/playwright/test-results/tests-example-should-load-the-React-app-and-display-text-Chrome/test-finished-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "/home/tortola/testes/ci-test-2/app/playwright/test-results/tests-example-should-load-the-React-app-and-display-text-Chrome/video.webm"
-                    }
-                  ]
+                  "startTime": "2024-11-08T13:27:02.800Z",
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "/home/tortola/testes/ci-test-2/playwright/tests/example.test.ts",
+                    "column": 14,
+                    "line": 5
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "skipped"
             }
           ],
           "id": "a6ef45e6fd775f0ee539-0c65ad5fec03fc6cd52e",
@@ -114,10 +130,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2024-11-08T13:09:41.328Z",
-    "duration": 2975.8140000000003,
-    "expected": 1,
-    "skipped": 0,
+    "startTime": "2024-11-08T13:27:01.154Z",
+    "duration": 48078.301,
+    "expected": 0,
+    "skipped": 1,
     "unexpected": 0,
     "flaky": 0
   }
