@@ -17,7 +17,11 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-      
+    
+    - name: teste
+      run: |
+          rm -rf .git/hooks
+          npm install
     # - name: Start React app
     #   run: |
     #     nohup npm start &    # Start React app in the background
