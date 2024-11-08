@@ -16,7 +16,10 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      run: |
+        npm install @playwright/test
+        npx playwright install
+        # npx playwright install --with-deps
     
     # - name: teste
     #   run: |
@@ -40,7 +43,6 @@ jobs:
       run: |
          cd playwright
          pwd
-         ls
          npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
