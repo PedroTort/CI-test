@@ -18,10 +18,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     
-    - name: teste
-      run: |
-          rm -rf .git/hooks
-          npm install
+    # - name: teste
+    #   run: |
+    #       rm -rf .git/hooks
+    #       npm install
     # - name: Start React app
     #   run: |
     #     nohup npm start &    # Start React app in the background
@@ -39,6 +39,8 @@ jobs:
     - name: Run Playwright tests
       run: |
          cd playwright
+         pwd
+         ls
          npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
