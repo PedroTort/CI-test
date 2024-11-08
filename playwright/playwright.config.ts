@@ -20,20 +20,25 @@ const config: PlaywrightTestConfig = {
 
     testMatch: ["tests/example.test.ts"],
     use: {
-        // baseURL: "https://automationintesting.online",
-        headless: true,
-        screenshot: "on",
-        video: "on",   
-    },
-    
-    fullyParallel: true,
-    retries: 0,
+      baseURL: "https://automationintesting.online",
+      headless: false,
+      screenshot: "on",
+      video: "on",   
+  },
+  
+  fullyParallel: true,
+  retries: 0,
 
-    reporter: [
-    ["dot"], 
+  reporter: [
+  ["dot"], 
 
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
-    ['json', { outputFolder: 'playwright-report', outputFile: 'report.json' }],
+   ["json", {
+       outputFile: "jsonReports/jsonReport.json"
+   }], 
+
+  ["html", {
+      open: "always"
+  }]
 ]
 
 };

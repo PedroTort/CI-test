@@ -4,6 +4,7 @@ on:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+
 jobs:
   test:
     timeout-minutes: 60
@@ -25,7 +26,6 @@ jobs:
       run: |
         nohup npm start &    # Start React app in the background
 
-    # Wait for React app to be available using curl
     - name: Wait for React app to be available
       run: |
         echo "Waiting for React app to be available..."
@@ -40,11 +40,10 @@ jobs:
          cd playwright
          pwd
          npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
 
-        
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+          name: playwright-report-ui
+          path: playwright-report/
+          retention-days: 30
