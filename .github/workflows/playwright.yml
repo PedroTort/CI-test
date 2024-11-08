@@ -21,23 +21,19 @@ jobs:
         npx playwright install
         # npx playwright install --with-deps
     
-    # - name: teste
-    #   run: |
-    #       rm -rf .git/hooks
-    #       npm install
-    # - name: Start React app
-    #   run: |
-    #     nohup npm start &    # Start React app in the background
+    - name: Start React app
+      run: |
+        nohup npm start &    # Start React app in the background
 
-    # # Wait for React app to be available using curl
-    # - name: Wait for React app to be available
-    #   run: |
-    #     echo "Waiting for React app to be available..."
-    #     until curl --silent --fail http://localhost:3000; do
-    #       echo "Waiting for server to start..."
-    #       sleep 2  # Check every 2 seconds
-    #     done
-    #     echo "React app is up and running!"
+    # Wait for React app to be available using curl
+    - name: Wait for React app to be available
+      run: |
+        echo "Waiting for React app to be available..."
+        until curl --silent --fail http://localhost:3000; do
+          echo "Waiting for server to start..."
+          sleep 2  # Check every 2 seconds
+        done
+        echo "React app is up and running!"
         
     - name: Run Playwright tests
       run: |
