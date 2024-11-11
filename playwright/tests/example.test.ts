@@ -60,7 +60,7 @@ test.describe("Filtros", () => {
         await page.getByRole('button', { name: 'Adicionar' }).click();
 
         await expect(page.getByRole('table').getByText('Driva',  { exact: true })).toBeVisible({timeout: 40000});
-        await expect(page.getByRole('table').getByText('Loja Vivo',  { exact: true })).toBeVisible({timeout: 40000});
+        await expect(page.getByRole('table').getByText('Loja VivoR',  { exact: true })).toBeVisible({timeout: 40000});
         // await expect(page.getByRole('table').getByText('Claro',  { exact: true })).toBeVisible() 
 
         await page.getByText('Claro').nth(1).click();
