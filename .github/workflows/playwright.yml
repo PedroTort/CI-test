@@ -37,10 +37,10 @@ jobs:
         
     - name: Run Playwright tests
       run: |
-         cd playwright
-         pwd
-         npx playwright test
-
+        cd playwright
+        cd tests
+        pwd
+        npx playwright test
     # - name: Move back to the root directory
     #   run: |
     #     cd ..

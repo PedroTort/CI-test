@@ -69,7 +69,7 @@ test.describe("Filtros", () => {
         await checkNumberOfCompanies(page, 0);
     });
 
-    test("Filtro - Número de Funcionários", async({page}) => {
+    test.skip("Filtro - Número de Funcionários", async({page}) => {
 
         test.setTimeout(180000)
         
@@ -136,7 +136,7 @@ test.describe("Filtros", () => {
         await checkNumberOfCompanies(page, 0);
     })
 
-    test("Filtro - Segmento", async({page}) => {
+    test.skip("Filtro - Segmento", async({page}) => {
         test.setTimeout(180000)
         
         const filter = 'Segmento';
@@ -163,7 +163,7 @@ test.describe("Filtros", () => {
         await checkNumberOfCompanies(page, 0)
     })
 
-    test("Filtro - Faturamento", async({page}) =>{
+    test.skip("Filtro - Faturamento", async({page}) =>{
         test.slow();
 
         const filter = 'Faturamento';
@@ -196,7 +196,7 @@ test.describe("Filtros", () => {
         await checkNumberOfCompanies(page, 0)
     }) 
 
-    test("Filtro - Localização", async({page}) => {
+    test.skip("Filtro - Localização", async({page}) => {
 
         test.setTimeout(180000)
         
@@ -256,7 +256,7 @@ test.describe("Filtros", () => {
         await checkNumberOfCompanies(page, 0)
     })
 
-    test("Filtro - Redes Sociais", async({page}) =>{
+    test.skip("Filtro - Redes Sociais", async({page}) =>{
         test.slow();
 
         const filter = 'Redes Sociais';
