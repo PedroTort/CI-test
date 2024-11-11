@@ -92,9 +92,8 @@ jobs:
     - name: Where i'm
       run: |
         pwd 
-
-    - name: List files in playwright-report
-      run: ls -la playwright/playwright-report/
+        cd ..
+        pwd
       
     - uses: actions/upload-artifact@v4
       if: always()
