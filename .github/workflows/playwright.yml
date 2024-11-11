@@ -1,3 +1,62 @@
+# name: Playwright Tests
+# on:
+#   push:
+#     branches: [ main, master ]
+#   pull_request:
+#     branches: [ main, master ]
+
+# jobs:
+#   test:
+#     timeout-minutes: 60
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v4
+#     - uses: actions/setup-node@v4
+#       with:
+#         node-version: lts/*
+#     - name: Install dependencies
+#       run: npm ci
+#     - name: Install Playwright Browsers
+#       run: |
+#         npm install @playwright/test
+#         npx playwright install
+#         # npx playwright install --with-deps
+    
+#     # - name: Start React app
+#     #   run: |
+#     #     nohup npm start &    # Start React app in the background
+
+#     # - name: Wait for React app to be available
+#     #   run: |
+#     #     echo "Waiting for React app to be available..."
+#     #     until curl --silent --fail http://localhost:3000; do
+#     #       echo "Waiting for server to start..."
+#     #       sleep 2  # Check every 2 seconds
+#     #     done
+#     #     echo "React app is up and running!"
+        
+#     - name: Run Playwright tests
+#       run: |
+#         cd playwright
+#         cd tests
+#         pwd
+#         npx playwright test
+#     # - name: Move back to the root directory
+#     #   run: |
+#     #     cd ..
+#     #     pwd 
+#     - name: Going back one folder
+#       run: |
+#         cd ..
+#         pwd
+
+#     - uses: actions/upload-artifact@v4
+#       if: always()
+#       with:
+#           name: playwright-report-ui
+#           path: playwright/playwright-report/
+#           retention-days: 1
+
 name: Playwright Tests
 on:
   push:
@@ -21,35 +80,20 @@ jobs:
         npm install @playwright/test
         npx playwright install
         # npx playwright install --with-deps
-    
-    # - name: Start React app
-    #   run: |
-    #     nohup npm start &    # Start React app in the background
-
-    # - name: Wait for React app to be available
-    #   run: |
-    #     echo "Waiting for React app to be available..."
-    #     until curl --silent --fail http://localhost:3000; do
-    #       echo "Waiting for server to start..."
-    #       sleep 2  # Check every 2 seconds
-    #     done
-    #     echo "React app is up and running!"
         
     - name: Run Playwright tests
       run: |
-        cd playwright
-        cd tests
-        pwd
-        npx playwright test
-    # - name: Move back to the root directory
-    #   run: |
-    #     cd ..
-    #     pwd 
-    - name: Going back one folder
-      run: |
-        cd ..
-        pwd
+         cd playwright
+         pwd
+         npx playwright test
 
+    - name: Where i'm
+      run: |
+        pwd 
+
+    - name: List files in playwright-report
+      run: ls -la playwright/playwright-report/
+      
     - uses: actions/upload-artifact@v4
       if: always()
       with:
