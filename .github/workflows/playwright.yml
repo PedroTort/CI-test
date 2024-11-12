@@ -1,3 +1,53 @@
+# name: Playwright Tests
+# on:
+#   push:
+#     branches: [ main, master ]
+#   pull_request:
+#     branches: [ main, master ]
+
+# jobs:
+#   test:
+#     timeout-minutes: 60
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - uses: actions/checkout@v4
+
+#     - uses: actions/setup-node@v4
+#       with:
+#         node-version: lts/*
+
+#     - name: Set up Node.js
+#       uses: actions/setup-node@v3
+#       with:
+#         node-version: '18' 
+
+#     - name: Install dependencies (with legacy-peer-deps)
+#       run: |
+#         npm ci --legacy-peer-deps
+#     - name: Build project
+#       run: npm run build
+
+#     - name: Install Playwright Browsers
+#       run: |
+#         npm install @playwright/test --legacy-peer-deps
+#         npx playwright install
+#     - name: Run Playwright tests with report generation
+#       run: |
+#         cd playwright/tests
+#         npx playwright test --reporter=html
+
+#     - name: List files in playwright-report
+#       run: |
+#         ls -R playwright/playwright-report
+
+#     - uses: actions/upload-artifact@v4
+#       if: always()
+#       with:
+#         name: playwright-report-ui
+#         path: playwright/playwright-report/
+#         retention-days: 1
+
 name: Playwright Tests
 on:
   push:
@@ -25,17 +75,16 @@ jobs:
     - name: Install dependencies (with legacy-peer-deps)
       run: |
         npm ci --legacy-peer-deps
-    - name: Build project
-      run: npm run build
 
     - name: Install Playwright Browsers
       run: |
-        npm install @playwright/test --legacy-peer-deps
+        npm install @playwright/test
         npx playwright install
+
     - name: Run Playwright tests with report generation
       run: |
         cd playwright/tests
-        npx playwright test --reporter=html
+        npx playwright test
 
     - name: List files in playwright-report
       run: |
