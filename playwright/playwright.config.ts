@@ -17,7 +17,6 @@ const config: PlaywrightTestConfig = {
       }
     ],
 
-
     testMatch: ["tests/example.test.ts"],
     use: {
       headless: true,
