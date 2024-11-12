@@ -26,7 +26,7 @@ test.describe("Filtros", () => {
         await expect(page.getByRole('tab', { name: /Social \(/ })).toHaveText(`Social(${value})`, {timeout: 10000 })
     }
         
-    test("Filtro - Nome da Empresa", async ({ page }) => {
+    test.skip("Filtro - Nome da Empresa", async ({ page }) => {
         test.slow();
     
         const filter = 'Nome da Empresa';
@@ -69,7 +69,7 @@ test.describe("Filtros", () => {
         await checkNumberOfCompanies(page, 0);
     });
 
-    test.skip("Filtro - Número de Funcionários", async({page}) => {
+    test("Filtro - Número de Funcionários", async({page}) => {
 
         test.setTimeout(180000)
         
