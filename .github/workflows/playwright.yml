@@ -80,11 +80,11 @@ jobs:
       run: |
         npm install @playwright/test
         npx playwright install
-
+        
     - name: Run Playwright tests with report generation
       run: |
         cd playwright/tests
-        npx playwright test
+        npx playwright test --reporter=html
 
     - name: List files in playwright-report
       run: |
